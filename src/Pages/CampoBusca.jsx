@@ -23,7 +23,6 @@ class CampoBusca extends Component {
         categorias: categoriasResponse,
         input: '',
         categoryID: [...mapeamento],
-        products: [],
       });
     });
   }
@@ -37,8 +36,9 @@ class CampoBusca extends Component {
   async handleClick() {
     const { input, categoryID } = this.state;
     const produtos = await getProductsFromCategoryAndQuery(categoryID, input);
+    const { results } = produtos;
     this.setState({
-      products: produtos,
+      products: results,
     });
   }
 
@@ -74,7 +74,7 @@ class CampoBusca extends Component {
             />
           ))
         }
-        <ProductCard produtos={ () => products } />
+        <ProductCard produtos={ products } />
       </div>
     );
   }
