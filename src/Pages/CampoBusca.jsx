@@ -18,11 +18,9 @@ class CampoBusca extends Component {
 
   componentDidMount() {
     getCategories().then((categoriasResponse) => {
-      const mapeamento = categoriasResponse.map((categoria) => categoria.id);
       this.setState({
         categorias: categoriasResponse,
         input: '',
-        categoryID: [...mapeamento],
       });
     });
   }
@@ -71,6 +69,11 @@ class CampoBusca extends Component {
               nomeCategoria={ categoria.name }
               ID={ categoria.id }
               data-testid="category"
+              onSelectCategory={ () => {
+                this.setState({
+                  categoryID: categoria.id,
+                });
+              } }
             />
           ))
         }
