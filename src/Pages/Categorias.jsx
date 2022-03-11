@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+// import ProductCard from './ProductCard';
 
 class Categorias extends Component {
   render() {
-    const { nomeCategoria, ID } = this.props;
+    const { nomeCategoria, ID, onSelectCategory } = this.props;
     return (
-      <label data-testid="category" htmlFor={ nomeCategoria }>
-        <input
-          type="radio"
-          name="nomeCategoria"
-          id={ ID }
-        />
-        {nomeCategoria}
-      </label>
+      <div>
+        <label data-testid="category" htmlFor={ ID }>
+          <input
+            type="radio"
+            name="nomeCategoria"
+            id={ ID }
+            onClick={ onSelectCategory }
+          />
+          {nomeCategoria}
+        </label>
+      </div>
     );
   }
 }
@@ -20,6 +24,7 @@ class Categorias extends Component {
 Categorias.propTypes = {
   nomeCategoria: propTypes.string.isRequired,
   ID: propTypes.string.isRequired,
+  onSelectCategory: propTypes.func.isRequired,
 };
 
 export default Categorias;

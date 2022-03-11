@@ -11,7 +11,10 @@ class ProductCard extends Component {
           <div data-testid="product" key={ produto.title }>
             <h2>{ produto.title }</h2>
             <img src={ produto.thumbnail } alt={ produto.title } />
-            <h3>{ produto.price }</h3>
+            <h3>
+              R$
+              { produto.price }
+            </h3>
           </div>
         ))
       )
