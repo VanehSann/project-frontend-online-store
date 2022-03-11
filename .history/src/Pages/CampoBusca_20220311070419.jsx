@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Categorias from './Categorias';
-import { getCategories } from '../services/api';
 
-// import { getCategories } from '/src/services/api';
 
 class CampoBusca extends Component {
   constructor() {
@@ -13,11 +11,11 @@ class CampoBusca extends Component {
   }
 
   componentDidMount() {
-    getCategories().then((categoriasResponse) => {
-      this.setState({
-        categorias: categoriasResponse,
-      });
-    });
+    // getCategories().then((categoriasResponse) => {
+    //   this.setState({
+    //     categorias: categoriasResponse,
+    //   });
+    // });
   }
 
   render() {

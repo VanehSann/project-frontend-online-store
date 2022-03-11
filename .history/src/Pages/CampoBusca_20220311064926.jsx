@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Categorias from './Categorias';
-import { getCategories } from '../services/api';
+// import * as api from '/src/services/api';
 
-// import { getCategories } from '/src/services/api';
+import { getCategories } from '/src/services/api';
 
 class CampoBusca extends Component {
   constructor() {
