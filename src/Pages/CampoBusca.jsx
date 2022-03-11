@@ -1,35 +1,49 @@
 import React, { Component } from 'react';
-import ProductCard from './ProductCard';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import Categorias from './Categorias';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+// import ProductCard from './ProductCard';
 
 class CampoBusca extends Component {
   constructor() {
     super();
     this.state = {
+      categorias: [],
       input: '',
-      category: '',
+      categoryID: '',
       products: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange({ target: { value } }) {
-    this.setState({
-      input: value,
+  componentDidMount() {
+    getCategories().then((categoriasResponse) => {
+      const mapeamento = categoriasResponse.map((categoria) => categoria.id);
+      this.setState({
+        categorias: categoriasResponse,
+        input: '',
+        categoryID: [...mapeamento],
+        products: [],
+      });
     });
   }
 
-  handleClick() {
-    const { input, category } = this.state;
-    const produtos = getProductsFromCategoryAndQuery(category, input);
+  handleChange({ target: { value } }) {
     this.setState({
-      products: [...produtos],
+      input: value.toLowerCase(),
+    });
+  }
+
+  async handleClick() {
+    const { input, categoryID } = this.state;
+    const produtos = await getProductsFromCategoryAndQuery(categoryID, input);
+    this.setState({
+      products: produtos,
     });
   }
 
   render() {
-    const { products } = this.state;
+    const { categorias, products } = this.state;
     return (
       <div>
         <h3 data-testid="home-initial-message">
@@ -50,7 +64,17 @@ class CampoBusca extends Component {
         >
           Procurar
         </button>
-        <ProductCard produtos={ products } />
+        {
+          categorias.map((categoria) => (
+            <Categorias
+              key={ categoria.id }
+              nomeCategoria={ categoria.name }
+              ID={ categoria.id }
+              data-testid="category"
+            />
+          ))
+        }
+        {/* <ProductCard produtos={ products } /> */}
       </div>
     );
   }
