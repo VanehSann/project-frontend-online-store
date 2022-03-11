@@ -73,6 +73,7 @@ class CampoBusca extends Component {
                 this.setState({
                   categoryID: categoria.id,
                 });
+                this.handleClick();
               } }
             />
           ))

@@ -24,6 +24,7 @@ class Categorias extends Component {
 Categorias.propTypes = {
   nomeCategoria: propTypes.string.isRequired,
   ID: propTypes.string.isRequired,
+  onSelectCategory: propTypes.func.isRequired,
 };
 
 export default Categorias;
