@@ -16,8 +16,8 @@ class Categorias extends Component {
   }
 }
 
-Categorias.propTypes = {
-  nomeCategoria: propTypes.string.isRequired,
+Categorias.proptype = {
+  nomeCategoria: PropTypes.string.isRequired,
 };
 
 export default Categorias;

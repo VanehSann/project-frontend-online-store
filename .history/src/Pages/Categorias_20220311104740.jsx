@@ -16,7 +16,7 @@ class Categorias extends Component {
   }
 }
 
-Categorias.propTypes = {
+Categorias.proptype = {
   nomeCategoria: propTypes.string.isRequired,
 };
 
