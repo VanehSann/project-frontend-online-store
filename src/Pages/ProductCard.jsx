@@ -11,10 +11,11 @@ class ProductCard extends Component {
   }
 
   componentDidMount() {
-    const { produtos } = this.props;
-    this.setState({
-      produtos,
-    });
+    // const { produtos:{ products: {results}} } = this.props;
+    console.log(this.props);
+    // this.setState({
+    //   produtos,
+    // });
   }
 
   render() {

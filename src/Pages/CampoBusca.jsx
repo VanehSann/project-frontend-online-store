@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Categorias from './Categorias';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
-// import ProductCard from './ProductCard';
+import ProductCard from './ProductCard';
 
 class CampoBusca extends Component {
   constructor() {
@@ -74,7 +74,7 @@ class CampoBusca extends Component {
             />
           ))
         }
-        {/* <ProductCard produtos={ products } /> */}
+        <ProductCard produtos={ () => products } />
       </div>
     );
   }
