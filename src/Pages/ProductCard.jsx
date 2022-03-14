@@ -2,22 +2,45 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
 class ProductCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      productID: '',
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    const { id } = this.props;
+    this.setState({
+      productID: id,
+    });
+  }
+
+  handleClick() {
+    console.log('clicou');
+  }
+
   render() {
-    const { produtos } = this.props;
+    const { title, thumbnail, price } = this.props;
     return (
-      produtos.length === 0 ? (
-        <h3>Nenhum produto foi encontrado</h3>) : (
-        produtos.map((produto) => (
-          <div data-testid="product" key={ produto.title }>
-            <h2>{ produto.title }</h2>
-            <img src={ produto.thumbnail } alt={ produto.title } />
-            <h3>
-              R$
-              { produto.price }
-            </h3>
-          </div>
-        ))
-      )
+      <div>
+        <div data-testid="product" key={ title }>
+          <h2>{ title }</h2>
+          <img src={ thumbnail } alt={ title } />
+          <h3>
+            R$
+            { price }
+          </h3>
+          <button
+            data-testid="product-add-to-cart"
+            type="submit"
+            onClick={ this.handleClick }
+          >
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
     );
   }
 }
