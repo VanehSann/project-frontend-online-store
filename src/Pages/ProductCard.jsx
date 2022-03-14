@@ -6,25 +6,27 @@ class ProductCard extends Component {
     super();
     this.state = {
       productID: '',
-      itens: [],
+      price: '',
+      thumbnail: '',
+      title: '',
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    const { id } = this.props;
+    const { id, price, thumbnail, title } = this.props;
     this.setState({
       productID: id,
+      price,
+      thumbnail,
+      title,
     });
   }
 
   handleClick() {
-    const { itens, productID } = this.state;
-    console.log(productID);
-    this.setState = {
-      itens: productID,
-    };
-    console.log(itens);
+    const { productID, price, thumbnail, title } = this.state;
+    const info = [productID, price, thumbnail, title];
+    localStorage.setItem('produto', info);
   }
 
   render() {
@@ -51,12 +53,10 @@ class ProductCard extends Component {
   }
 }
 ProductCard.propTypes = {
-  // produtos: propTypes.instanceOf(Array).isRequired,
   price: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
   thumbnail: propTypes.string.isRequired,
   id: propTypes.string.isRequired,
-  // https://stackoverflow.com/questions/41771217/react-linter-airbnb-proptypes-array
 };
 
 export default ProductCard;
