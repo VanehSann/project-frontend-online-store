@@ -27,28 +27,24 @@ class carrinhoCompras extends Component {
 
   render() {
     const { produtos } = this.state;
+    if (!produtos) {
+      return (<h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>);
+    }
     return (
-      <div>
-        { produtos.length > 0 && produtos.map((item) => (
-          <div key={ item.productID }>
-            <h3 data-testid="shopping-cart-product-name">
-              { item.title }
-            </h3>
-            <img src={ item.thumbnail } alt={ item.title } />
-            <h4>{ item.price }</h4>
-            <p data-testid="shopping-cart-product-quantity">
-              {' '}
-              { produtos.length }
-              {' '}
-            </p>
-          </div>
-        ))}
-        {/* <p
-          data-testid="shopping-cart-empty-message"
-        >
-          Seu carrinho está vazio
-        </p> */}
-      </div>
+      produtos.map((item) => (
+        <div key={ item.productID }>
+          <h3 data-testid="shopping-cart-product-name">
+            { item.title }
+          </h3>
+          <img src={ item.thumbnail } alt={ item.title } />
+          <h4>{ item.price }</h4>
+          <p data-testid="shopping-cart-product-quantity">
+            {' '}
+            { produtos.length }
+            {' '}
+          </p>
+        </div>
+      ))
     );
   }
 }
