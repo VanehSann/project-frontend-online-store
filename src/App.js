@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import CampoBusca from './Pages/CampoBusca';
 import Button from './Pages/Button';
-// teste
 
 function App() {
   return (
