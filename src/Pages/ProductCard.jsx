@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
-import ProductDetails from './ProductDetails';
+import { Link } from 'react-router-dom';
 
 class ProductCard extends Component {
   constructor() {
@@ -47,16 +46,9 @@ class ProductCard extends Component {
       <div>
         <div data-testid="product" key={ title }>
           <h2>{ title }</h2>
-          <BrowserRouter>
-            <Route
-              exact
-              path="/productDetails/:id"
-              render={ (props) => <ProductDetails { ...props } /> }
-            />
-            <Link to={ `/productDetails/${id}` }>
-              <img src={ thumbnail } alt={ title } />
-            </Link>
-          </BrowserRouter>
+          <Link to={ `/productDetails/${id}` }>
+            <img src={ thumbnail } alt={ title } />
+          </Link>
           <h3>
             R$
             { price }

@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import CampoBusca from './Pages/CampoBusca';
-import Button from './Pages/Button';
+import carrinhoCompras from './Pages/carrinhoCompras';
+import ProductDetails from './Pages/ProductDetails';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Route exact path="/" component={ CampoBusca } />
-        <Button> </Button>
+        <Route path="/carrinhoCompras" component={ carrinhoCompras } />
+        <Route
+          path="/productDetails/:id"
+          render={ (props) => <ProductDetails info={ props } /> }
+        />
       </BrowserRouter>
     </div>
   );
