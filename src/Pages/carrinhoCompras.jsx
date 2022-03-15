@@ -29,7 +29,7 @@ class carrinhoCompras extends Component {
     const { produtos } = this.state;
     return (
       <div>
-        { produtos.length > 0 && produtos.map((item) => (
+        { produtos && produtos.map((item) => (
           <div key={ item.productID }>
             <h3 data-testid="shopping-cart-product-name">
               { item.title }
@@ -43,11 +43,7 @@ class carrinhoCompras extends Component {
             </p>
           </div>
         ))}
-        {/* <p
-          data-testid="shopping-cart-empty-message"
-        >
-          Seu carrinho está vazio
-        </p> */}
+        { <h3 data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </h3> }
       </div>
     );
   }
