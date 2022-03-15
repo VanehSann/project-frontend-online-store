@@ -22,7 +22,7 @@ class ProductCard extends Component {
     const { itens, productID } = this.state;
     console.log(productID);
     this.setState = {
-      itens: productID,
+      itens: [...productID],
     };
     console.log(itens);
   }
