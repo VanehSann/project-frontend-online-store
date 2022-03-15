@@ -78,7 +78,14 @@ class CampoBusca extends Component {
             />
           ))
         }
-        <ProductCard produtos={ products } />
+        {products.map((produto) => (<ProductCard
+          title={ produto.title }
+          thumbnail={ produto.thumbnail }
+          price={ produto.price }
+          key={ produto.id }
+          id={ produto.id }
+        />))}
+
       </div>
     );
   }
