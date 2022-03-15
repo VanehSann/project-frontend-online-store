@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import ProductDetails from './ProductDetails';
 
 class ProductCard extends Component {
   render() {
@@ -8,13 +9,22 @@ class ProductCard extends Component {
       produtos.length === 0 ? (
         <h3>Nenhum produto foi encontrado</h3>) : (
         produtos.map((produto) => (
-          <div data-testid="product" key={ produto.title }>
-            <h2>{ produto.title }</h2>
+          <div
+            data-testid="product"
+            key={ produto.title }
+          >
             <img src={ produto.thumbnail } alt={ produto.title } />
             <h3>
               R$
               { produto.price }
             </h3>
+            <button
+              type="submit"
+              data-testid="product-detail-link"
+              onClick={ <ProductDetails /> }
+            >
+              Abrir
+            </button>
           </div>
         ))
       )
