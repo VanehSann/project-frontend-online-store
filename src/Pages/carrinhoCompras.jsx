@@ -4,29 +4,50 @@ class carrinhoCompras extends Component {
   constructor() {
     super();
     this.state = {
-      id: '',
-      price: '',
-      thumb: '',
-      title: '',
+      // id: '',
+      // price: '',
+      // thumb: '',
+      // title: '',
+      produtos: [],
     };
   }
 
   componentDidMount() {
+    const items = JSON.parse(localStorage.getItem('items'));
+    // this.setState({
+    //   id: localStorage.getItem('produtoID'),
+    //   price: localStorage.getItem('produtoPrice'),
+    //   thumb: localStorage.getItem('produtoThumb'),
+    //   title: localStorage.getItem('produtoTitle'),
+    // });
     this.setState({
-      id: localStorage.getItem('produtoID'),
-      price: localStorage.getItem('produtoPrice'),
-      thumb: localStorage.getItem('produtoThumb'),
-      title: localStorage.getItem('produtoTitle'),
+      produtos: items,
     });
   }
 
   render() {
-    const { id, price, thumb, title } = this.state;
+    const { produtos } = this.state;
     return (
       <div>
-        <h3>{ title }</h3>
-        <img src={ thumb } alt={ id } />
-        <h5>{ `R$${price}` }</h5>
+        { produtos.length > 0 && produtos.map((item) => (
+          <div key={ item.productID }>
+            <h3 data-testid="shopping-cart-product-name">
+              { item.title }
+            </h3>
+            <img src={ item.thumbnail } alt={ item.title } />
+            <h4>{ item.price }</h4>
+            <p data-testid="shopping-cart-product-quantity">
+              {' '}
+              { produtos.length }
+              {' '}
+            </p>
+          </div>
+        ))}
+        {/* <p
+          data-testid="shopping-cart-empty-message"
+        >
+          Seu carrinho está vazio
+        </p> */}
       </div>
     );
   }

@@ -25,10 +25,18 @@ class ProductCard extends Component {
 
   handleClick() {
     const { productID, price, thumbnail, title } = this.state;
-    localStorage.setItem('produtoID', productID);
-    localStorage.setItem('produtoPrice', price);
-    localStorage.setItem('produtoThumb', thumbnail);
-    localStorage.setItem('produtoTitle', title);
+    // localStorage.setItem('produtoID', productID);
+    // localStorage.setItem('produtoPrice', price);
+    // localStorage.setItem('produtoThumb', thumbnail);
+    // localStorage.setItem('produtoTitle', title);
+    const objTeste = { productID, price, thumbnail, title };
+    if (localStorage.getItem('items') === null) {
+      localStorage.setItem('items', JSON.stringify([objTeste]));
+    } else {
+      localStorage.setItem('items', JSON.stringify(
+        [...JSON.parse(localStorage.getItem('items')), objTeste],
+      ));
+    }
   }
 
   render() {
