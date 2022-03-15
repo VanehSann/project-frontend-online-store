@@ -25,7 +25,7 @@ class carrinhoCompras extends Component {
     return (
       <div>
         <h3>{ title }</h3>
-        <img src={ thumb } alt={ title } />
+        <img src={ thumb } alt={ id } />
         <h5>{ `R$${price}` }</h5>
       </div>
     );
