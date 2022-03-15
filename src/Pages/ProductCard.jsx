@@ -46,7 +46,7 @@ class ProductCard extends Component {
       <div>
         <div data-testid="product" key={ title }>
           <h2>{ title }</h2>
-          <Link to={ `/productDetails/${id}` }>
+          <Link to={ `/productDetails/${id}` } data-testid="product-detail-link">
             <img src={ thumbnail } alt={ title } />
           </Link>
           <h3>
