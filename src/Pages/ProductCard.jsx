@@ -25,8 +25,10 @@ class ProductCard extends Component {
 
   handleClick() {
     const { productID, price, thumbnail, title } = this.state;
-    const info = [productID, price, thumbnail, title];
-    localStorage.setItem('produto', info);
+    localStorage.setItem('produtoID', productID);
+    localStorage.setItem('produtoPrice', price);
+    localStorage.setItem('produtoThumb', thumbnail);
+    localStorage.setItem('produtoTitle', title);
   }
 
   render() {
