@@ -27,6 +27,9 @@ class carrinhoCompras extends Component {
 
   render() {
     const { produtos } = this.state;
+    if (!produtos) {
+      return (<h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>);
+    }
     return (
       <div>
         { produtos && produtos.map((item) => (
