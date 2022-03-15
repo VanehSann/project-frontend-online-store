@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Categorias from './Categorias';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import ProductCard from './ProductCard';
+import Button from './Button';
 
 class CampoBusca extends Component {
   constructor() {
@@ -78,6 +79,7 @@ class CampoBusca extends Component {
             />
           ))
         }
+        <Button />
         {products.map((produto) => (<ProductCard
           title={ produto.title }
           thumbnail={ produto.thumbnail }
