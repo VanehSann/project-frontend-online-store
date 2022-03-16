@@ -68,7 +68,7 @@ class carrinhoCompras extends Component {
             </h3>
             <img src={ item.thumbnail } alt={ item.title } />
             <h4>{ item.price }</h4>
-            {/* requisito 10 */}
+            {/*  requisito 10  */}
             <button
               data-testid="product-increase-quantity"
               type="button"
