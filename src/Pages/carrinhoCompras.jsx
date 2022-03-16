@@ -9,6 +9,7 @@ class carrinhoCompras extends Component {
       // thumb: '',
       // title: '',
       produtos: [],
+      contador: 1, // contador se iniciando com o zero
     };
   }
 
@@ -22,11 +23,39 @@ class carrinhoCompras extends Component {
     // });
     this.setState({
       produtos: items,
+      contador: 1, // produtos.length === 0 ? 1 : produtos.length
     });
   }
 
+  // funcao do requisito 10 //
+
+  diminui = ({ target }) => {
+    console.log(target.name);
+    const { contador } = this.state;
+    const a = 1;
+    if (contador <= 1) {
+      this.setState({
+        contador: 1,
+      });
+    } else {
+      this.setState({
+        contador: contador - a,
+      });
+    }
+  }
+
+  aumenta = () => {
+    const { contador } = this.state;
+    const a = 1;
+    this.setState({
+      contador: contador + a,
+    });
+  }
+
+  // fim da funcao do requisito 10 //
+
   render() {
-    const { produtos } = this.state;
+    const { produtos, contador } = this.state;
     if (!produtos) {
       return (<h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>);
     }
@@ -39,14 +68,33 @@ class carrinhoCompras extends Component {
             </h3>
             <img src={ item.thumbnail } alt={ item.title } />
             <h4>{ item.price }</h4>
-            <p data-testid="shopping-cart-product-quantity">
-              {' '}
-              { produtos.length }
-              {' '}
+            {/* requisito 10 */}
+            <button
+              data-testid="product-increase-quantity"
+              type="button"
+              name="aumenta"
+              onClick={ this.aumenta }
+              key={ item.productID }
+            >
+              +
+
+            </button>
+            <p data-testid="shopping-cart-product-quantity" name="contador">
+              {contador}
             </p>
+            <button
+              data-testid="product-decrease-quantity"
+              type="button"
+              name="diminui"
+              onClick={ this.diminui }
+              key={ item.productID }
+            >
+              -
+
+            </button>
+            {/* requisito 10 */}
           </div>
         ))}
-        { <h3 data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </h3> }
       </div>
     );
   }

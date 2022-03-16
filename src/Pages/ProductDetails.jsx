@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import Button from './Button';
+import React, { Component } from 'react';
 import { getProductsById } from '../services/api';
+import Button from './Button';
 
 class ProductDetails extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class ProductDetails extends Component {
     const { produto } = this.state;
     return (
       <div>
-        <h3 data-testid="product-detail-name">{produto.title}</h3>
+        <h3 data-testid="product-detail-name">{ produto.title }</h3>
         <img src={ produto.thumbnail } alt={ produto.title } />
         <h4>{`R$ ${produto.price}`}</h4>
         <Button />

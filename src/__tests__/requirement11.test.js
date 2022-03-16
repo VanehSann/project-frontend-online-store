@@ -1,8 +1,8 @@
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import App from '../App';
-import mockedQueryResult from '../__mocks__/query';
 import mockFetch from '../__mocks__/mockFetch';
+import mockedQueryResult from '../__mocks__/query';
 
 describe(`11 - Avalie e comente acerca de um produto em sua tela de exibição detalhada`, () => {
   afterEach(() => {
