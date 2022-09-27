@@ -5,7 +5,7 @@
   </b>
 </p>
 <h1 align="center">
-  frontend Project
+ Frontend Online Store Project
   <span> ( 🇧🇷 )  </span>
 </h1>
 
