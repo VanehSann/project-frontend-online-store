@@ -50,7 +50,13 @@
     <tr>
       <td><br>
         <p align="left">
-          <b>Autores:</b> Esse projeto foi desenvolvido por <a href="https://www.linkedin.com/in/vanehsann/" target="_blank"> Vanessa Santos <b>( Vaneh Sann' )</b></a> como estudante de desenvolvimento web na <b><a href="https://www.betrybe.com/" target="_blank"> Trybe </a></b>
+          <b>Autores:</b> Esse projeto foi desenvolvido por:
+    <a href="https://www.linkedin.com/in/vanehsann/" target="_blank"> Vanessa Santos </a>,
+<a href="https://www.linkedin.com/in/rogerconsul/" target="_blank"> Róger Consul </a>, 
+<a href="https://www.linkedin.com/in/rosy-mariana-nunes-dos-santos/" target="_blank"> Rosy Santos </a> ,
+         <a href="https://www.linkedin.com/in/ivesferreira/" target="_blank"> Ives Ferreira</a> e
+<a href="" target="_blank"> Ryan </a>
+         como estudantes de desenvolvimento web na <b><a href="https://www.betrybe.com/" target="_blank"> Trybe </a></b>
         </p>
       </td>
     <tr>
